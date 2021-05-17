@@ -9,8 +9,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class HomeCellViewModel;
+
 @interface HomeListCell : UITableViewCell
 
+- (void)bindVM:(HomeCellViewModel *)vm;
 @end
 
 NS_ASSUME_NONNULL_END

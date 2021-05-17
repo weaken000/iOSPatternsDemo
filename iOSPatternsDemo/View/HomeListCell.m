@@ -6,18 +6,14 @@
 //
 
 #import "HomeListCell.h"
+#import "HomeCellViewModel.h"
+#import "ListModel.h"
 
 @implementation HomeListCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)bindVM:(HomeCellViewModel *)vm {
+    self.textLabel.text = vm.item.ID;
+    self.textLabel.textColor = vm.titleColor;
 }
 
 @end

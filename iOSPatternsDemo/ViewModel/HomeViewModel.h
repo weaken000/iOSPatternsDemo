@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeViewModel : NSObject
 
+//埋点
 - (void)log:(NSString *)userInfo;
 
 @end

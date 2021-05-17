@@ -10,7 +10,7 @@
 @implementation HomeStore
 
 - (void)loadFirstPageListComplete:(void (^)(BOOL))complete {
-    NSArray *list = [NSKeyedUnarchiver unarchiveObjectWithFile:[self path]];
+    NSArray *list = [NSKeyedUnarchiver unarchiveObjectWithFile:[self listPath]];
     if (!list) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.datas removeAllObjects];
@@ -23,7 +23,7 @@
             }
             complete(YES);
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
-                [NSKeyedArchiver archiveRootObject:self.datas toFile:[self path]];
+                [NSKeyedArchiver archiveRootObject:self.datas toFile:[self listPath]];
             });
         });
     } else {
@@ -52,10 +52,21 @@
 }
 
 - (void)loadSearchConfig:(void (^)(BOOL))config {
-    
+    NSDictionary *datas = [[NSUserDefaults standardUserDefaults] objectForKey:@"com.patterns.searchConfig"];
+    if (!datas) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.searchConfig = @{
+                @"placeHolder": @"点击搜索"
+            };
+            config(YES);
+        });
+    } else {
+        self.searchConfig = datas;
+        config(YES);
+    }
 }
 
-- (NSString *)path {
+- (NSString *)listPath {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentDir = [paths objectAtIndex:0];
     NSString *dstPath = [documentDir stringByAppendingPathComponent:@"user.data"];

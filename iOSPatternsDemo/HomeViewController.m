@@ -11,7 +11,7 @@
 #import "HomeViewModel.h"
 #import "HomeStore.h"
 
-@interface HomeViewController ()
+@interface HomeViewController ()<HomeViewDelegate>
 
 @property (nonatomic, strong) HomeView *mainView;
 
@@ -24,17 +24,23 @@
 @implementation HomeViewController
 
 - (void)loadView {
-    self.homeVM = [[HomeViewModel alloc] init];
-    self.store = [[HomeStore alloc] init];
-    self.mainView = [[HomeView alloc] initWithVM:self.homeVM store:self.store];
+    
+    self.mainView = [[HomeView alloc] init];
     self.view = self.mainView;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    
+    self.homeVM = [[HomeViewModel alloc] init];
+    self.store = [[HomeStore alloc] init];
+    self.mainView.delegate = self;
+    [self.mainView bindVM:self.homeVM store:self.store];
 }
 
+#pragma mark - HomeViewDelegate
+- (void)homeView:(HomeView *)homeView didClickItem:(ListModel *)item {
+    [self presentViewController:[HomeViewController new] animated:YES completion:nil];
+}
 
 @end

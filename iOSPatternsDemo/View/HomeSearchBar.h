@@ -9,7 +9,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class HomeSearchViewModel;
+
 @interface HomeSearchBar : UIView
+
+- (void)bindVM:(HomeSearchViewModel *)vm;
 
 @end
 

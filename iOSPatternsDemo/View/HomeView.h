@@ -12,13 +12,23 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class HomeView;
+
+@protocol HomeViewDelegate <NSObject>
+
+- (void)homeView:(HomeView *)homeView didClickItem:(ListModel *)item;
+
+@end
+
 @interface HomeView : UIView
 
-@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, weak) id<HomeViewDelegate> delegate;
 
-@property (nonatomic, strong) HomeSearchBar *searchBar;
+@property (nonatomic, strong, readonly) UITableView *tableView;
 
-- (instancetype)initWithVM:(HomeViewModel *)viewModel store:(HomeStore *)store;
+@property (nonatomic, strong, readonly) HomeSearchBar *searchBar;
+
+- (void)bindVM:(HomeViewModel *)vm store:(HomeStore *)store;
 
 @end
 

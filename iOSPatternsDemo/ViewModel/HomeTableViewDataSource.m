@@ -7,6 +7,7 @@
 
 #import "HomeTableViewDataSource.h"
 #import "HomeListCell.h"
+#import "HomeCellViewModel.h"
 
 @implementation HomeTableViewDataSource {
     NSArray<ListModel *> *_datas;
@@ -28,8 +29,9 @@
     HomeListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
         cell = [[HomeListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    cell.textLabel.text = _datas[indexPath.row].ID;
+    [cell bindVM:[[HomeCellViewModel alloc] initWithItem:_datas[indexPath.row]]];
     return cell;
 }
 

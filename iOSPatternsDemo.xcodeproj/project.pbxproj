@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C976B77A265210A000D52890 /* HomeSearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C976B779265210A000D52890 /* HomeSearchViewModel.m */; };
+		C976B77D265211B600D52890 /* HomeCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C976B77C265211B600D52890 /* HomeCellViewModel.m */; };
 		C9E5162A264E68F200F91456 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E51629264E68F200F91456 /* AppDelegate.m */; };
 		C9E51630264E68F200F91456 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E5162F264E68F200F91456 /* HomeViewController.m */; };
 		C9E51633264E68F200F91456 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9E51631264E68F200F91456 /* Main.storyboard */; };
@@ -42,6 +44,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C976B778265210A000D52890 /* HomeSearchViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeSearchViewModel.h; sourceTree = "<group>"; };
+		C976B779265210A000D52890 /* HomeSearchViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeSearchViewModel.m; sourceTree = "<group>"; };
+		C976B77B265211B600D52890 /* HomeCellViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCellViewModel.h; sourceTree = "<group>"; };
+		C976B77C265211B600D52890 /* HomeCellViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeCellViewModel.m; sourceTree = "<group>"; };
 		C9E51625264E68F200F91456 /* iOSPatternsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSPatternsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9E51628264E68F200F91456 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C9E51629264E68F200F91456 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -195,6 +201,10 @@
 				C9E51665264E6A4100F91456 /* HomeTableViewDataSource.m */,
 				C9E51673264E77E200F91456 /* HomeViewModel.h */,
 				C9E51674264E77E200F91456 /* HomeViewModel.m */,
+				C976B778265210A000D52890 /* HomeSearchViewModel.h */,
+				C976B779265210A000D52890 /* HomeSearchViewModel.m */,
+				C976B77B265211B600D52890 /* HomeCellViewModel.h */,
+				C976B77C265211B600D52890 /* HomeCellViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -335,9 +345,11 @@
 				C9E5166C264E6A7B00F91456 /* HomeView.m in Sources */,
 				C9E51669264E6A7200F91456 /* ListModel.m in Sources */,
 				C9E51666264E6A4100F91456 /* HomeTableViewDataSource.m in Sources */,
+				C976B77A265210A000D52890 /* HomeSearchViewModel.m in Sources */,
 				C9E5166F264E6B6800F91456 /* HomeSearchBar.m in Sources */,
 				C9E5163B264E68F400F91456 /* main.m in Sources */,
 				C9E51672264E6C6E00F91456 /* HomeListCell.m in Sources */,
+				C976B77D265211B600D52890 /* HomeCellViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
